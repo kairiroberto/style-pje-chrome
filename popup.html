@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <style>
+    body{font:14px Arial; width:360px; padding:12px}
+    input, select{width:100%; padding:6px; margin:6px 0}
+    button{padding:8px 10px; margin-right:6px}
+    .row{display:flex; gap:8px}
+    .row > *{flex:1}
+    .small{font-size:12px; opacity:.8}
+  </style>
+</head>
+<body>
+  <b>Adicionar regra</b>
+  <div class="row">
+    <select id="type">
+      <option value="numero">Número do processo</option>
+      <option value="assunto">Assunto</option>
+      <option value="partes">Partes</option>
+    </select>
+
+    <select id="polo" style="display:none;">
+      <option value="ambos">Ativo + Passivo</option>
+      <option value="ativo">Polo ativo</option>
+      <option value="passivo">Polo passivo</option>
+    </select>
+
+    <select id="mode">
+      <option value="contains">Contém</option>
+      <option value="startswith">Começa com</option>
+      <option value="regex">Regex</option>
+    </select>
+  </div>
+
+
+  <input id="pattern" placeholder="Ex: 0805569-  ou  Nota Promissória" />
+
+  <div class="row">
+    <input id="color" type="color" value="#3498db" />
+    <button id="add">Adicionar</button>
+  </div>
+
+  <div class="small">A faixa é aplicada automaticamente no painel do PJe.</div>
+  <hr>
+  <button id="openOptions">Gerenciar regras</button>
+  <button id="applyNow">Aplicar agora</button>
+
+  <script>
+    const typeSel = document.getElementById("type");
+    const poloSel = document.getElementById("polo");
+    function togglePolo(){
+      poloSel.style.display = (typeSel.value === "partes") ? "block" : "none";
+    }
+    typeSel.addEventListener("change", togglePolo);
+    togglePolo();
+  </script>
+  <script src="popup.js"></script>
+</body>
+</html>
+

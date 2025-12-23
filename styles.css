@@ -1,0 +1,11 @@
+/* pinta o card todo, sem borda/sem faixa */
+.datalist-content.pje-mark{
+  /* cor suave baseada no accent */
+  background: color-mix(in srgb, var(--pje-accent) 14%, white) !important;
+}
+
+/* não deixa pintar os filhos (evita “segunda borda”) */
+.datalist-content.pje-mark .pje-mark{
+  background: transparent !important;
+}
+

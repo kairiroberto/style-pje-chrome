@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "PJe Card Colors",
+  "version": "1.0.0",
+  "description": "Aplica uma faixa colorida nos cards do PJe por número do processo ou assunto.",
+  "action": {
+    "default_title": "PJe Card Colors",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://pje1g.tjrn.jus.br/*",
+    "https://frontend.tjrn.jus.br/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://frontend.tjrn.jus.br/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
+}
+
+
